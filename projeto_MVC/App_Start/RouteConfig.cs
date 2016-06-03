@@ -16,7 +16,13 @@ namespace projeto_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Artista", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Agenda", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "EspecialidadeCreate",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Especialidade", action = "Create", id = UrlParameter.Optional }
             );
         }
     }

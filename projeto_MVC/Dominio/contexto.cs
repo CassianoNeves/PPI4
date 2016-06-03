@@ -14,7 +14,6 @@ namespace projeto_MVC.Dominio
 
         }
 
-        public DbSet<Artista> Artista { get; set; }
-        public DbSet<Disco> Disco { get; set; }
+        public DbSet<Especialidade> Especialidade { get; set; }
     }
 }

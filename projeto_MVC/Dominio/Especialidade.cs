@@ -5,7 +5,7 @@ using System.Web;
 
 namespace projeto_MVC.Dominio
 {
-    public class Artista
+    public class Especialidade
     {
         public int Id { get; set; }
 

@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace projeto_MVC.Controllers
 {
-    public class ArtistaController : Controller
+    public class AgendaController : Controller
     {
-        // GET: Artista
+        // GET: Agenda
         public ActionResult Index()
         {
             return View();
