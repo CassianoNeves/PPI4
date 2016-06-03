@@ -9,7 +9,7 @@ namespace projeto_MVC.Controllers
     public class MedicoController : Controller
     {
         // GET: Medico
-        public ActionResult Index()
+        public ActionResult Create()
         {
             return View();
         }

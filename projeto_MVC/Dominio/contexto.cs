@@ -15,5 +15,6 @@ namespace projeto_MVC.Dominio
         }
 
         public DbSet<Especialidade> Especialidade { get; set; }
+        public DbSet<Medico> Medico { get; set; }
     }
 }

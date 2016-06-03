@@ -21,7 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @Html.ActionLink("Especialidade", "Create", "Especialidade", new { area = "" }, new { @class = "navbar-brand" })
+                    <li> 
+                        @Html.ActionLink("Especialidade", "Create", "Especialidade", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Médico", "Create", "Medico", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
                 </ul>
             </div>
         </div>
