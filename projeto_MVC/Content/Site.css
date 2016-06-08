@@ -16,3 +16,114 @@ textarea {
     max-width: 280px;
 }
 
+/* CUSTOM*/
+.logo {
+    margin: 2px 15px 0 0;
+    float: left;
+}
+
+.navbar.navbar-inverse {
+    background-color: #039BE5;
+    border: 0;
+}
+
+.navbar.navbar-inverse .navbar-nav>li> a,
+.navbar-inverse a.navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li> a::before,
+.navbar-inverse .navbar-nav>li> a::after,
+.navbar-inverse .navbar-brand::before,
+.navbar-inverse .navbar-brand::after{
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.navbar-inverse .navbar-nav>li> a::before,
+.navbar-inverse .navbar-brand::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.navbar-inverse .navbar-nav>li> a::after,
+.navbar-inverse .navbar-brand::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.navbar-inverse .navbar-nav>li> a:hover::before,
+.navbar-inverse .navbar-nav>li> a:hover::after,
+.navbar-inverse .navbar-nav>li> a:focus::before,
+.navbar-inverse .navbar-nav>li> a:focus::after,
+.navbar-inverse .navbar-brand:hover::before,
+.navbar-inverse .navbar-brand:hover::after,
+.navbar-inverse .navbar-brand:focus::before,
+.navbar-inverse .navbar-brand:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+body .btn-default {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    background-color: #039BE5;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+body .btn-default:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: 1px;
+    background: #fff;
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+body .btn-default:hover {
+    background-color: #039BE5;
+    color: #fff;
+}
+
+body .btn-default:hover:before,
+body .btn-default:focus:before,
+body .btn-default:active:before {
+  left: 0;
+  right: 0;
+}
+
+ body .form-control {
+    border-radius: 0;
+    box-shadow: none;
+}

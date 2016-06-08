@@ -88,6 +88,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\bg-login.jpg" />
+    <Content Include="Content\Images\icon-stethoscope.png" />
+    <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
