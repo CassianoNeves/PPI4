@@ -153,9 +153,9 @@ footer .container {
   }
 
 /*LOGIN*/
-/*body {
+.pg-login {
     background: url('Images/bg-login.jpg');
-}*/
+}
 
 .box-login {
     width: 300px;
