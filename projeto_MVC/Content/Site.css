@@ -127,3 +127,83 @@ body .btn-default:active:before {
     border-radius: 0;
     box-shadow: none;
 }
+
+ footer {
+     width: 100%;
+     left: 0;
+     position: absolute;
+     bottom: -5px;
+     background-color: #039BE5;
+ }
+
+footer .container {
+    position: relative;
+}
+
+ footer p {
+    margin: 3px 0;
+    color: #fff;
+    font-size: 12px;
+ }
+
+  footer .copyright {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+/*LOGIN*/
+/*body {
+    background: url('Images/bg-login.jpg');
+}*/
+
+.box-login {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+    background: rgba(255,255,255, .8);
+    padding: 30px;
+    text-align: center;
+}
+
+.box-login input {
+    height: 40px;
+    width: 100%; 
+    margin-bottom: 10px;
+    border: solid 1px #e0e0e0;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.box-login button {
+    height: 40px;
+    text-align: center;
+    width: 100%;
+    background-color: #039BE5;
+    color: #fff;
+    border: 0;
+}
+
+.box-login .box-icon {
+    height: 175px;
+    width: 175px;
+    position: relative;
+    display: block;
+    margin: 0 auto 30px;
+    background-color: #039BE5;
+    border-radius: 50%;
+}
+
+.box-login .icon-stethoscope {
+    width: 80px;
+    height: 80px;
+    background: url('Images/icon-stethoscope.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
