@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace projeto_MVC.Dominio
+namespace projeto_MVC.ViewModel
 {
-    public class Medico
+    public class MedicoCreateVM
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public String Nome { get; set; }
 
@@ -15,7 +15,6 @@ namespace projeto_MVC.Dominio
 
         public String Email { get; set; }
 
-        public Especialidade Especialidade { get; set; }
-        
+        public int Especialidade { get; set; }
     }
 }

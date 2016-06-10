@@ -7,7 +7,7 @@ namespace projeto_MVC.Dominio
 {
     public class Especialidade
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public String Nome { get; set; }
     }

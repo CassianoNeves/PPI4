@@ -37,9 +37,7 @@ namespace projeto_MVC.Services
 
         public List<Especialidade> getAll()
         {
-            List<Especialidade> especialidades = contexto.Especialidade.ToList();
-
-            return especialidades;
+            return contexto.Especialidade.ToList();
         }
     }
 }
