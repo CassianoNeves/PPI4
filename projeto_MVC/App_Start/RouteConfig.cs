@@ -26,6 +26,24 @@ namespace projeto_MVC
             );
 
             routes.MapRoute(
+                name: "EspecialidadeList",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Especialidade", action = "List", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "EspecialidadeEdit",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Especialidade", action = "Edit", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "EspecialidadeDelete",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Especialidade", action = "Delete", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "MedicoCreate",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Medico", action = "Create", id = UrlParameter.Optional }
