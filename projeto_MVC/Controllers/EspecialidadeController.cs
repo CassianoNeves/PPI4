@@ -1,4 +1,6 @@
-﻿using projeto_MVC.ViewModel;
+﻿using projeto_MVC.Dominio;
+using projeto_MVC.Services;
+using projeto_MVC.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +11,52 @@ namespace projeto_MVC.Controllers
 {
     public class EspecialidadeController : Controller
     {
-        // GET: Especialidade
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private EspecialidadeService especialidadeService = new EspecialidadeService();
 
-        // GET: Especialidade
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Especialidade
         [HttpPost]
-        public ActionResult Create(EspecialidadeCreateViewModel especialidadeViewModel)
+        public ActionResult Create(Especialidade especialidade)
         {
-            return View();
+            especialidadeService.create(especialidade);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public ActionResult List()
+        {
+            List<Especialidade> especialidades = new List<Especialidade>();
+
+            especialidades = especialidadeService.getAll();
+
+            return View(especialidades);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(long id)
+        {
+            Especialidade especialidade = especialidadeService.findById(id);
+
+            return View(especialidade);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Especialidade especialidade)
+        {
+            especialidadeService.edit(especialidade);
+
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(long id)
+        {
+            especialidadeService.delete(id);
+            return RedirectToAction("List");
         }
     }
 }

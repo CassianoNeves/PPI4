@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 
-namespace projeto_MVC.ViewModel
+namespace projeto_MVC.Services
 {
-    public class EspecialidadeCreateViewModel
+    class EspecialidadeViewModel
     {
         public String Nome { get; set; }
     }

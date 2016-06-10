@@ -111,6 +111,8 @@
     <Content Include="Views\Especialidade\Create.cshtml" />
     <Content Include="Views\Medico\Create.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Especialidade\List.cshtml" />
+    <Content Include="Views\Especialidade\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -158,7 +160,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\EspecialidadeCreateViewModel.cs" />
+    <Compile Include="Services\EspecialidadeService.cs" />
+    <Compile Include="Services\EspecialidadeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
