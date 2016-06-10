@@ -109,10 +109,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Agenda\Index.cshtml" />
     <Content Include="Views\Especialidade\Create.cshtml" />
-    <Content Include="Views\Medico\Create.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Especialidade\List.cshtml" />
     <Content Include="Views\Especialidade\Edit.cshtml" />
+    <Content Include="Views\Medico\Create.cshtml" />
+    <Content Include="Views\Medico\List.cshtml" />
+    <Content Include="Views\Medico\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -158,11 +160,24 @@
     <Compile Include="Migrations\201606032316589_Medico.Designer.cs">
       <DependentUpon>201606032316589_Medico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606100042491_Medico-alter.cs" />
+    <Compile Include="Migrations\201606100042491_Medico-alter.Designer.cs">
+      <DependentUpon>201606100042491_Medico-alter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606102114460_Medico-remove-password.cs" />
+    <Compile Include="Migrations\201606102114460_Medico-remove-password.Designer.cs">
+      <DependentUpon>201606102114460_Medico-remove-password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606102204236_Medico-long-id.cs" />
+    <Compile Include="Migrations\201606102204236_Medico-long-id.Designer.cs">
+      <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EspecialidadeService.cs" />
-    <Compile Include="Services\EspecialidadeViewModel.cs" />
+    <Compile Include="Services\MedicoService.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MedicoCreateVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -198,6 +213,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606032316589_Medico.resx">
       <DependentUpon>201606032316589_Medico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606100042491_Medico-alter.resx">
+      <DependentUpon>201606100042491_Medico-alter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606102114460_Medico-remove-password.resx">
+      <DependentUpon>201606102114460_Medico-remove-password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606102204236_Medico-long-id.resx">
+      <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
