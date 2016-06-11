@@ -1,4 +1,5 @@
 ﻿using projeto_MVC.Dominio;
+using projeto_MVC.Handlers;
 using projeto_MVC.Services;
 using projeto_MVC.ViewModel;
 using System;
@@ -9,10 +10,12 @@ using System.Web.Mvc;
 
 namespace projeto_MVC.Controllers
 {
+    [Autorizador(Roles="administrador")]
     public class EspecialidadeController : Controller
     {
         private EspecialidadeService especialidadeService = new EspecialidadeService();
 
+        
         [HttpGet]
         public ActionResult Create()
         {

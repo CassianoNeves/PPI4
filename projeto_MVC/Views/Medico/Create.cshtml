@@ -8,8 +8,14 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+
+@using (Html.BeginForm())
 {
+    <div>
+        @Html.ValidationSummary()   
+    </div>
+
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">

@@ -7,5 +7,8 @@ namespace projeto_MVC.ViewModel
 {
     public class LoginViewModel
     {
+        public String Login { get; set; }
+
+        public String Senha { get; set; }
     }
 }
