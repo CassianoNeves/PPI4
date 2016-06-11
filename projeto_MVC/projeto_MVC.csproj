@@ -88,6 +88,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\Images\bg-login.jpg" />
     <Content Include="Content\Images\icon-stethoscope.png" />
     <Content Include="Content\Images\logo.png" />
@@ -97,6 +99,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -104,7 +107,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Agenda\Index.cshtml" />
@@ -173,6 +178,10 @@
     <Compile Include="Migrations\201606102204236_Medico-long-id.Designer.cs">
       <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606111346398_porra.cs" />
+    <Compile Include="Migrations\201606111346398_porra.Designer.cs">
+      <DependentUpon>201606111346398_porra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EspecialidadeService.cs" />
@@ -223,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606102204236_Medico-long-id.resx">
       <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606111346398_porra.resx">
+      <DependentUpon>201606111346398_porra.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
