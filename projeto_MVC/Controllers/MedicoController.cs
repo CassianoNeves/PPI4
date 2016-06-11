@@ -1,4 +1,5 @@
 ﻿using projeto_MVC.Dominio;
+using projeto_MVC.Handlers;
 using projeto_MVC.Services;
 using projeto_MVC.ViewModel;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace projeto_MVC.Controllers
 {
+    [Autorizador(Roles="administrador")]
     public class MedicoController : Controller
     {
         EspecialidadeService especialidadeService = new EspecialidadeService();
@@ -25,8 +27,16 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public ActionResult Create(Medico medico)
         {
-            medicoService.create(medico);
-            return RedirectToAction("List");
+            if (ModelState.IsValid)
+            {
+                medicoService.create(medico);
+                return RedirectToAction("List");
+             }
+            else
+            {
+                return View("Create", medico);
+            }
+            
         }
 
         [HttpGet]
@@ -44,8 +54,15 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public ActionResult Edit(Medico medico)
         {
-            medicoService.edit(medico);
-            return RedirectToAction("List");
+            if (ModelState.IsValid)
+            {
+                medicoService.edit(medico);
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View("Edit", medico);
+            }
         }
 
         [HttpGet]

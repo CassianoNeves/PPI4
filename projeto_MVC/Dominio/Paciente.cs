@@ -6,7 +6,7 @@ using System.Web;
 
 namespace projeto_MVC.Dominio
 {
-    public class Medico
+    public class Paciente
     {
         public long Id { get; set; }
 
@@ -14,13 +14,9 @@ namespace projeto_MVC.Dominio
         public String Nome { get; set; }
 
         [Required]
-        public int Crm { get; set; }
+        public String CPF { get; set; }
 
         [Required]
         public String Email { get; set; }
-
-        [Required]
-        public Especialidade Especialidade { get; set; }
-        
     }
 }

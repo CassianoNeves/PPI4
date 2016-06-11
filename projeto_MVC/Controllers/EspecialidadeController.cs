@@ -1,4 +1,5 @@
 ﻿using projeto_MVC.Dominio;
+using projeto_MVC.Handlers;
 using projeto_MVC.Services;
 using projeto_MVC.ViewModel;
 using System;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace projeto_MVC.Controllers
 {
+    [Autorizador(Roles="administrador")]
     public class EspecialidadeController : Controller
     {
         private EspecialidadeService especialidadeService = new EspecialidadeService();
@@ -22,8 +24,13 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public ActionResult Create(Especialidade especialidade)
         {
-            especialidadeService.create(especialidade);
-            return RedirectToAction("List");
+            if (ModelState.IsValid) {
+                especialidadeService.create(especialidade);
+                return RedirectToAction("List");
+            }
+            else {
+                return View("Create", especialidadeService);
+            }
         }
 
         [HttpGet]
@@ -40,16 +47,22 @@ namespace projeto_MVC.Controllers
         public ActionResult Edit(long id)
         {
             Especialidade especialidade = especialidadeService.findById(id);
-
             return View(especialidade);
         }
 
         [HttpPost]
         public ActionResult Edit(Especialidade especialidade)
         {
-            especialidadeService.edit(especialidade);
-
-            return RedirectToAction("List");
+            if (ModelState.IsValid)
+            {
+                especialidadeService.edit(especialidade);
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View("Edit", especialidade);
+            }
+            
         }
 
         [HttpGet]
