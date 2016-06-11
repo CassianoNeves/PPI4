@@ -186,6 +186,9 @@
     </Compile>
     <Compile Include="Migrations\201606111346398_porra.cs" />
     <Compile Include="Migrations\201606111346398_porra.Designer.cs">
+      <DependentUpon>201606111346398_porra.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="Migrations\201606111303344_medico-add-required.cs" />
     <Compile Include="Migrations\201606111303344_medico-add-required.Designer.cs">
       <DependentUpon>201606111303344_medico-add-required.cs</DependentUpon>
@@ -257,6 +260,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606111346398_porra.resx">
       <DependentUpon>201606111346398_porra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606111303344_medico-add-required.resx">
       <DependentUpon>201606111303344_medico-add-required.cs</DependentUpon>
     </EmbeddedResource>
