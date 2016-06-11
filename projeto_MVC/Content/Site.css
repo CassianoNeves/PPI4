@@ -17,6 +17,11 @@ textarea {
 }
 
 /* CUSTOM*/
+
+body {
+    padding-bottom: 0;
+}
+
 .logo {
     margin: 2px 15px 0 0;
     float: left;
@@ -128,12 +133,16 @@ body .btn-default:active:before {
     box-shadow: none;
 }
 
- footer {
-     width: 100%;
+ .pg-login footer {
      left: 0;
      position: absolute;
      bottom: -5px;
+ }
+
+ footer {
+     width: 100%;
      background-color: #039BE5;
+     margin-top: 30px;
  }
 
 footer .container {
