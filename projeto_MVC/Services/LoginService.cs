@@ -13,7 +13,13 @@ namespace projeto_MVC.Services
 
         public Usuario login(LoginViewModel loginViewModel)
         {
-            return contexto.Usuario.Where(u => u.Login == loginViewModel.Login && u.Senha == loginViewModel.Senha).ToList().First();
+            List<Usuario> usuarios = contexto.Usuario.Where(u => u.Login == loginViewModel.Login && u.Senha == loginViewModel.Senha).ToList();
+
+            if (usuarios != null && usuarios.Count > 0) {
+                return usuarios.First();
+            }
+
+            return null;
         }
 
     }

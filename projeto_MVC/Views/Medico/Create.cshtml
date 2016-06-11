@@ -12,10 +12,6 @@
 
 @using (Html.BeginForm())
 {
-    <div>
-        @Html.ValidationSummary()   
-    </div>
-
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
@@ -25,31 +21,28 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @required = "true" } })
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Crm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Crm, new { htmlAttributes = new { @class = "form-control", @required = "true" } })
-                @Html.ValidationMessageFor(model => model.Crm, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Crm, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required= "true", @type="email" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type="email" } })   
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Especialidade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select class="form-control" id="Especialidade.Id" name="Especialidade.Id" required">
+                <select class="form-control" id="Especialidade.Id" name="Especialidade.Id">
                     <option value>selecione..</option>
                     @foreach (projeto_MVC.Dominio.Especialidade especialidade in ViewBag.Especialidades)
                     {
@@ -66,6 +59,10 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+    </div>
+
+    <div>
+        @Html.ValidationSummary()
     </div>
 }
 

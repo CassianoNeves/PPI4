@@ -15,7 +15,6 @@ namespace projeto_MVC.Controllers
     {
         private EspecialidadeService especialidadeService = new EspecialidadeService();
 
-        
         [HttpGet]
         public ActionResult Create()
         {
@@ -25,8 +24,13 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public ActionResult Create(Especialidade especialidade)
         {
-            especialidadeService.create(especialidade);
-            return RedirectToAction("List");
+            if (ModelState.IsValid) {
+                especialidadeService.create(especialidade);
+                return RedirectToAction("List");
+            }
+            else {
+                return View("Create", especialidadeService);
+            }
         }
 
         [HttpGet]
@@ -43,16 +47,22 @@ namespace projeto_MVC.Controllers
         public ActionResult Edit(long id)
         {
             Especialidade especialidade = especialidadeService.findById(id);
-
             return View(especialidade);
         }
 
         [HttpPost]
         public ActionResult Edit(Especialidade especialidade)
         {
-            especialidadeService.edit(especialidade);
-
-            return RedirectToAction("List");
+            if (ModelState.IsValid)
+            {
+                especialidadeService.edit(especialidade);
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View("Edit", especialidade);
+            }
+            
         }
 
         [HttpGet]

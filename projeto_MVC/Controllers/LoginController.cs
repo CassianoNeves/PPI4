@@ -22,18 +22,29 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public ActionResult Index(LoginViewModel loginViewModel)
         {
-            Usuario usuario = loginService.login(loginViewModel);
-
-            if (usuario != null)
+            if (ModelState.IsValid)
             {
-                Session["UsuarioLogado"] = usuario;
+                Usuario usuario = loginService.login(loginViewModel);
 
-                return RedirectToAction("Index", "Agenda");
+                if (usuario != null)
+                {
+                    Session["UsuarioLogado"] = usuario;
+
+                    return RedirectToAction("Index", "Agenda");
+                }
+
+                ModelState.AddModelError("LOGIN_INCORRECT", "Login ou senha incorretos.");
+                return View("Index", loginViewModel);
             }
 
-            // não faz nada
-            return View();
-            
+            return View("Index", loginViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session["UsuarioLogado"] = null;
+            return RedirectToAction("Index");
         }
     }
 }
