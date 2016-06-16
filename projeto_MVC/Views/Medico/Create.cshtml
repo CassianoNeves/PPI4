@@ -68,14 +68,14 @@
 
         <div class="form-group">
             <label class="control-label col-md-2" for="IdDayOfWorks">Dias de atendimento</label>
-                <div class="col-md-10">
-                    <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdDayOfWorks" id="IdDayOfWorks" multiple>
-                        @for (int i = 0; i < ViewBag.DiasDaSemana.Length; i++)
-                        {
-                            <option value="@i">@ViewBag.DiasDaSemana[i]</option>
-                        }
-                    </select>
-                </div>
+            <div class="col-md-10">
+                <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdDayOfWorks" id="IdDayOfWorks" multiple>
+                    @for (int i = 0; i < ViewBag.DiasDaSemana.Length; i++)
+                    {
+                        <option value="@i">@ViewBag.DiasDaSemana[i]</option>
+                    }
+                </select>
+            </div>
             </div>
 
 
