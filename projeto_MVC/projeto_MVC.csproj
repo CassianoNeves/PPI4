@@ -86,6 +86,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fullcalendar.css" />
@@ -96,9 +97,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ScriptsPages\Agenda.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -110,6 +113,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\fullcalendar.pt-br.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Agenda\Index.cshtml" />
@@ -132,6 +136,7 @@
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Dominio\Contexto.cs" />
+    <Compile Include="Dominio\DayOfWork.cs" />
     <Compile Include="Dominio\Especialidade.cs" />
     <Compile Include="Dominio\Medico.cs" />
     <Compile Include="Dominio\Paciente.cs" />
@@ -140,70 +145,33 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Autorizador.cs" />
-    <Compile Include="Migrations\201606022332571_Inicial.cs" />
-    <Compile Include="Migrations\201606022332571_Inicial.Designer.cs">
-      <DependentUpon>201606022332571_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201606150208016_Initial.cs" />
+    <Compile Include="Migrations\201606150208016_Initial.Designer.cs">
+      <DependentUpon>201606150208016_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606022347017_Inicial-2.cs" />
-    <Compile Include="Migrations\201606022347017_Inicial-2.Designer.cs">
-      <DependentUpon>201606022347017_Inicial-2.cs</DependentUpon>
+    <Compile Include="Migrations\201606150210477_remove-SenhaVerificador.cs" />
+    <Compile Include="Migrations\201606150210477_remove-SenhaVerificador.Designer.cs">
+      <DependentUpon>201606150210477_remove-SenhaVerificador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606022349436_add arista no disco.cs" />
-    <Compile Include="Migrations\201606022349436_add arista no disco.Designer.cs">
-      <DependentUpon>201606022349436_add arista no disco.cs</DependentUpon>
+    <Compile Include="Migrations\201606150229533_especialidades-medicos.cs" />
+    <Compile Include="Migrations\201606150229533_especialidades-medicos.Designer.cs">
+      <DependentUpon>201606150229533_especialidades-medicos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606032138071_Add especialização.cs" />
-    <Compile Include="Migrations\201606032138071_Add especialização.Designer.cs">
-      <DependentUpon>201606032138071_Add especialização.cs</DependentUpon>
+    <Compile Include="Migrations\201606150231167_rename-especialidades-medicos.cs" />
+    <Compile Include="Migrations\201606150231167_rename-especialidades-medicos.Designer.cs">
+      <DependentUpon>201606150231167_rename-especialidades-medicos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606032140403_Add especializa.cs" />
-    <Compile Include="Migrations\201606032140403_Add especializa.Designer.cs">
-      <DependentUpon>201606032140403_Add especializa.cs</DependentUpon>
+    <Compile Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.cs" />
+    <Compile Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.Designer.cs">
+      <DependentUpon>201606150300333_rename-especialidades-medicos-alteracoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606032142060_Add especializacao.cs" />
-    <Compile Include="Migrations\201606032142060_Add especializacao.Designer.cs">
-      <DependentUpon>201606032142060_Add especializacao.cs</DependentUpon>
+    <Compile Include="Migrations\201606151311237_rename-required-dayokwork.cs" />
+    <Compile Include="Migrations\201606151311237_rename-required-dayokwork.Designer.cs">
+      <DependentUpon>201606151311237_rename-required-dayokwork.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606032229263_remover disco e artista.cs" />
-    <Compile Include="Migrations\201606032229263_remover disco e artista.Designer.cs">
-      <DependentUpon>201606032229263_remover disco e artista.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606032316589_Medico.cs" />
-    <Compile Include="Migrations\201606032316589_Medico.Designer.cs">
-      <DependentUpon>201606032316589_Medico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606100042491_Medico-alter.cs" />
-    <Compile Include="Migrations\201606100042491_Medico-alter.Designer.cs">
-      <DependentUpon>201606100042491_Medico-alter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606102114460_Medico-remove-password.cs" />
-    <Compile Include="Migrations\201606102114460_Medico-remove-password.Designer.cs">
-      <DependentUpon>201606102114460_Medico-remove-password.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606102204236_Medico-long-id.cs" />
-    <Compile Include="Migrations\201606102204236_Medico-long-id.Designer.cs">
-      <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606111346398_porra.cs" />
-    <Compile Include="Migrations\201606111346398_porra.Designer.cs">
-      <DependentUpon>201606111346398_porra.cs</DependentUpon>
-    </Compile>
-
-    <Compile Include="Migrations\201606111303344_medico-add-required.cs" />
-    <Compile Include="Migrations\201606111303344_medico-add-required.Designer.cs">
-      <DependentUpon>201606111303344_medico-add-required.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606111306492_add-required.cs" />
-    <Compile Include="Migrations\201606111306492_add-required.Designer.cs">
-      <DependentUpon>201606111306492_add-required.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606111407006_vo saber.cs" />
-    <Compile Include="Migrations\201606111407006_vo saber.Designer.cs">
-      <DependentUpon>201606111407006_vo saber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606111419231_paciente.cs" />
-    <Compile Include="Migrations\201606111419231_paciente.Designer.cs">
-      <DependentUpon>201606111419231_paciente.cs</DependentUpon>
+    <Compile Include="Migrations\201606160029034_remove-required-especialidade.cs" />
+    <Compile Include="Migrations\201606160029034_remove-required-especialidade.Designer.cs">
+      <DependentUpon>201606160029034_remove-required-especialidade.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +181,7 @@
     <Compile Include="Services\PacienteService.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MedicoCreateVM.cs" />
+    <Compile Include="ViewModel\MedicoDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -223,56 +192,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606022332571_Inicial.resx">
-      <DependentUpon>201606022332571_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606022347017_Inicial-2.resx">
-      <DependentUpon>201606022347017_Inicial-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606022349436_add arista no disco.resx">
-      <DependentUpon>201606022349436_add arista no disco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032138071_Add especialização.resx">
-      <DependentUpon>201606032138071_Add especialização.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032140403_Add especializa.resx">
-      <DependentUpon>201606032140403_Add especializa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032142060_Add especializacao.resx">
-      <DependentUpon>201606032142060_Add especializacao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032229263_remover disco e artista.resx">
-      <DependentUpon>201606032229263_remover disco e artista.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032316589_Medico.resx">
-      <DependentUpon>201606032316589_Medico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606100042491_Medico-alter.resx">
-      <DependentUpon>201606100042491_Medico-alter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606102114460_Medico-remove-password.resx">
-      <DependentUpon>201606102114460_Medico-remove-password.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606102204236_Medico-long-id.resx">
-      <DependentUpon>201606102204236_Medico-long-id.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606111346398_porra.resx">
-      <DependentUpon>201606111346398_porra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606111303344_medico-add-required.resx">
-      <DependentUpon>201606111303344_medico-add-required.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606111306492_add-required.resx">
-      <DependentUpon>201606111306492_add-required.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606111407006_vo saber.resx">
-      <DependentUpon>201606111407006_vo saber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606111419231_paciente.resx">
-      <DependentUpon>201606111419231_paciente.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
@@ -288,6 +207,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606150208016_Initial.resx">
+      <DependentUpon>201606150208016_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150210477_remove-SenhaVerificador.resx">
+      <DependentUpon>201606150210477_remove-SenhaVerificador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150229533_especialidades-medicos.resx">
+      <DependentUpon>201606150229533_especialidades-medicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150231167_rename-especialidades-medicos.resx">
+      <DependentUpon>201606150231167_rename-especialidades-medicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.resx">
+      <DependentUpon>201606150300333_rename-especialidades-medicos-alteracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606151311237_rename-required-dayokwork.resx">
+      <DependentUpon>201606151311237_rename-required-dayokwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160029034_remove-required-especialidade.resx">
+      <DependentUpon>201606160029034_remove-required-especialidade.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,7 @@ namespace projeto_MVC.Dominio
         public String Senha { get; set; }
 
         [Compare("Senha")]
+        [NotMapped]
         public virtual String SenhaVerificador { get; set; }
 
         public String Role { get; set; }

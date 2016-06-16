@@ -12,5 +12,7 @@ namespace projeto_MVC.Dominio
 
         [Required]
         public String Nome { get; set; }
+
+        public List<Medico> Medicos { get; set; }
     }
 }

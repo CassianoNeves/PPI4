@@ -43,20 +43,55 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Especialidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="IdEspecialidades">Especialidade</label>
             <div class="col-md-10">
-                <select class="form-control" id="Especialidade.Id" name="Especialidade.Id">
-                    <option value="">selecione..</option>
+                <select multiple data-placeholder="Selecione..." class="chosen-select form-control" id="IdEspecialidades" name="IdEspecialidades">
                     @foreach (projeto_MVC.Dominio.Especialidade especialidade in ViewBag.Especialidades)
                     {
-                        if (especialidade.Id == Model.Especialidade.Id)
+                        if (Model.IdEspecialidades.Any(e => e == especialidade.Id))
                         {
                             <option selected value="@especialidade.Id">@especialidade.Nome</option>
                         }
-                        
-                        <option value="@especialidade.Id">@especialidade.Nome</option>
+                        else
+                        {
+                            <option value="@especialidade.Id">@especialidade.Nome</option>
+                        }
                     }
 
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="HrInicio">Início do atendimento</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HrInicio, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="HrFim">Fim do atendimento</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HrFim, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IdDayOfWorks">Dias de atendimento</label>
+            <div class="col-md-10">
+                <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdDayOfWorks" id="IdDayOfWorks" multiple>
+                    @for (int i = 0; i < ViewBag.DiasDaSemana.Length; i++)
+                    {
+                        if (Model.IdDayOfWorks.Any(e => e.Equals(i)))
+                        {
+                            <option selected value="@i">@ViewBag.DiasDaSemana[i]</option>
+
+                        }
+                        else
+                        {
+                            <option value="@i">@ViewBag.DiasDaSemana[i]</option>
+                        }
+                    }
                 </select>
 
             </div>

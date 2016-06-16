@@ -1,13 +1,13 @@
-﻿using System;
+﻿using projeto_MVC.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace projeto_MVC.Dominio
+namespace projeto_MVC.ViewModel
 {
-    public class Medico
+    public class MedicoDto
     {
         public long Id { get; set; }
 
@@ -26,15 +26,10 @@ namespace projeto_MVC.Dominio
         [Required]
         public String HrFim { get; set; }
 
-        public List<DayOfWork> DayOfWork { get; set; }
+        [Required]
+        public List<long> DayOfWork { get; set; }
 
-        public List<Especialidade> Especialidades { get; set; }
-
-        [NotMapped]
-        public virtual List<long> IdEspecialidades { get; set; }
-
-        [NotMapped]
-        public virtual List<long> IdDayOfWorks { get; set; }
-        
+        [Required]
+        public List<long> Especialidades { get; set; }
     }
 }
