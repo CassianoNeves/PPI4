@@ -13,6 +13,16 @@ namespace projeto_MVC.Controllers
     [Autorizador(Roles = "administrador")]
     public class MedicoController : Controller
     {
+        private static String[] DIAS_DA_SEMANA = {
+                    "Domingo", 
+                    "Segunda",
+                    "Terça",
+                    "Quarta",
+                    "Quinta",
+                    "Sexta",
+                    "Sabado" 
+                };
+
         EspecialidadeService especialidadeService = new EspecialidadeService();
         MedicoService medicoService = new MedicoService();
 
@@ -20,15 +30,7 @@ namespace projeto_MVC.Controllers
         public ActionResult Create()
         {
             ViewBag.Especialidades = especialidadeService.getAll();
-            ViewBag.DiasDaSemana = new[] { 
-                "Domingo", 
-                "Segunda",
-                "Terça",
-                "Quarta",
-                "Quinta",
-                "Sexta",
-                "Sabado" 
-            };
+            ViewBag.DiasDaSemana = DIAS_DA_SEMANA;
 
 
             return View();
@@ -45,15 +47,7 @@ namespace projeto_MVC.Controllers
             else
             {
                 ViewBag.Especialidades = especialidadeService.getAll();
-                ViewBag.DiasDaSemana = new[] { 
-                    "Domingo", 
-                    "Segunda",
-                    "Terça",
-                    "Quarta",
-                    "Quinta",
-                    "Sexta",
-                    "Sabado" 
-                };
+                ViewBag.DiasDaSemana = DIAS_DA_SEMANA;
                 return View("Create", medico);
             }
 
@@ -66,15 +60,7 @@ namespace projeto_MVC.Controllers
 
             List<Especialidade> especialidades = especialidadeService.getAll();
             ViewBag.Especialidades = especialidades;
-            ViewBag.DiasDaSemana = new[] { 
-                "Domingo", 
-                "Segunda",
-                "Terça",
-                "Quarta",
-                "Quinta",
-                "Sexta",
-                "Sabado" 
-            };
+            ViewBag.DiasDaSemana = DIAS_DA_SEMANA;
 
             return View(medico);
         }
@@ -90,15 +76,7 @@ namespace projeto_MVC.Controllers
             else
             {
                 ViewBag.Especialidades = especialidadeService.getAll();
-                ViewBag.DiasDaSemana = new[] { 
-                    "Domingo", 
-                    "Segunda",
-                    "Terça",
-                    "Quarta",
-                    "Quinta",
-                    "Sexta",
-                    "Sabado" 
-                };
+                ViewBag.DiasDaSemana = DIAS_DA_SEMANA;
                 return View("Edit", medico);
             }
         }

@@ -47,20 +47,11 @@ namespace projeto_MVC.Services
 
         public void edit(Medico medico)
         {
-            Medico medicoInsert = new Medico();
+            medico.Especialidades = contexto.Especialidade.Where(x => medico.IdEspecialidades.Contains(x.Id)).ToList();
 
-            medicoInsert.Id = medico.Id;
-            medicoInsert.Nome = medico.Nome;
-            medicoInsert.Crm = medico.Crm;
-            medicoInsert.Email = medico.Email;
-            medicoInsert.HrInicio = medico.HrInicio;
-            medicoInsert.HrFim = medico.HrFim;
+            contexto.Entry<Medico>(medico).State = System.Data.Entity.EntityState.Modified;
 
-            medicoInsert.Especialidades = contexto.Especialidade.Where(x => medico.IdEspecialidades.Contains(x.Id)).ToList();
-
-            contexto.Entry<Medico>(medicoInsert).State = System.Data.Entity.EntityState.Modified;
-
-            foreach (Especialidade e in medicoInsert.Especialidades)
+            foreach (Especialidade e in medico.Especialidades)
             {
                 contexto.Entry<Especialidade>(e).State = System.Data.Entity.EntityState.Modified;
             }
@@ -71,12 +62,12 @@ namespace projeto_MVC.Services
             {
                 DayOfWork dayOfWork = new DayOfWork();
 
-                dayOfWork.Medico = medicoInsert;
+                dayOfWork.Medico = medico;
                 dayOfWork.DayOfWeek = day;
                 days.Add(dayOfWork);
             }
 
-            List<DayOfWork> dayOfWorkOlds = contexto.DayOfWork.Where(d => d.Medico.Id.Equals(medicoInsert.Id)).ToList();
+            List<DayOfWork> dayOfWorkOlds = contexto.DayOfWork.Where(d => d.Medico.Id.Equals(medico.Id)).ToList();
 
             contexto.DayOfWork.RemoveRange(dayOfWorkOlds);
             contexto.DayOfWork.AddRange(days);

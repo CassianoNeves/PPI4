@@ -19,7 +19,7 @@ namespace projeto_MVC.Services
 
         public void edit(Especialidade especialidade)
         {
-            contexto.Especialidade.Add(especialidade);
+            contexto.Entry<Especialidade>(especialidade).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
         }
 

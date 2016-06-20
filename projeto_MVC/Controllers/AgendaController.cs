@@ -21,5 +21,11 @@ namespace projeto_MVC.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public JsonResult Buscar(FiltrosAgenda filtros)
+        {
+            return Json(agendaService.buscarAgendamentos(filtros));
+        }
     }
 }

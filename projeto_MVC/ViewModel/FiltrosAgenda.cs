@@ -8,7 +8,9 @@ namespace projeto_MVC.ViewModel
 {
     public class FiltrosAgenda
     {
-        public List<Medico> medicos;
-        public List<Paciente> pacientes;
+        public List<Medico> Medicos { get; set; }
+        public List<Paciente> Pacientes { get; set; }
+        public int IdMedico { get; set; }
+        public int IdPaciente { get; set; }
     }
 }

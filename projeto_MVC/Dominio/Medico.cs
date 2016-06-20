@@ -26,6 +26,9 @@ namespace projeto_MVC.Dominio
         [Required]
         public String HrFim { get; set; }
 
+        [Required]
+        public String DuracaoConsulta { get; set; }
+
         public List<DayOfWork> DayOfWork { get; set; }
 
         public List<Especialidade> Especialidades { get; set; }
