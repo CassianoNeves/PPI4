@@ -32,7 +32,15 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public JsonResult Create(Agenda agenda)
         {
-            return Json(agendaService.create(agenda));
+            Agenda agendaCreated = agendaService.create(agenda);
+
+            if (agendaCreated.Id == -1)
+            {
+                Response.StatusCode = 400;
+                return Json("NO_CONSULTA_IN_LAST_DAYS");
+            }
+
+            return Json(agendaCreated);
         }
 
         [HttpPost]
