@@ -194,6 +194,23 @@ footer .container {
     background-color: #039BE5;
     color: #fff;
     border: 0;
+    position: relative;
+}
+
+.box-login button.load {
+    text-indent: -9999px;
+}
+
+.box-login button.load img {
+    display: block;
+}
+
+.box-login button img {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
 }
 
 .box-login .box-icon {
@@ -215,4 +232,10 @@ footer .container {
     left: 50%;
     z-index: 1;
     transform: translateX(-50%) translateY(-50%);
+}
+
+.box-login .text-danger ul {
+    list-style: none;
+    padding: 10px 0 0;
+    margin: 0;
 }

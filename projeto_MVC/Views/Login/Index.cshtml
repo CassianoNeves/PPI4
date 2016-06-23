@@ -45,13 +45,15 @@
                     <form action="/Login/Login" method="post">
                         <input type="text" name="login" value="" placeholder="Usuário" />
                         <input type="password" name="senha" value="" placeholder="Senha" />
-                        <button type="submit">LOGIN</button>
+                        <button class="" type="submit">LOGIN
+                            <img src="../Content/Images/loader.gif" alt="Loader" />
+                        </button>
                     </form>
-                </div>
-            </div>
 
-            <div class="text-danger">
-                @Html.ValidationSummary()
+                    <div class="text-danger">
+                        @Html.ValidationSummary()
+                    </div>
+                </div>
             </div>
         }
    </div>
