@@ -11,6 +11,11 @@ namespace projeto_MVC.Services
     {
         private MedicoService medicoService = new MedicoService();
         private PacienteService pacienteService = new PacienteService();
+        private static String[] tiposDeConsulta = {
+                                                     "Consulta",
+                                                     "Reconsulta",
+                                                     "Consulta de Rotina"
+                                                 };
 
         Contexto contexto = new Contexto();
 
@@ -20,6 +25,7 @@ namespace projeto_MVC.Services
 
             filtros.Medicos = medicoService.getAll();
             filtros.Pacientes = pacienteService.getAll();
+            filtros.tiposDeConsulta = tiposDeConsulta;
 
             return filtros;
         }
@@ -37,7 +43,51 @@ namespace projeto_MVC.Services
 
             medico.DayOfWork.ForEach(d => result.diasDaSemana.Add(d.DayOfWeek));
 
+            List<Agenda> agendamentos = new List<Agenda>();
+            agendamentos = contexto.Agenda.Include("Paciente").Where(a => a.Medico.Id == filtros.IdMedico).ToList();
+
+            result.Agendamentos = new List<Agenda>();
+
+            foreach (Agenda a in agendamentos)
+            {
+                Agenda agenda = new Agenda();
+
+                agenda.Id = a.Id;
+                agenda.Paciente = a.Paciente;
+                agenda.DataDaConsulta = a.DataDaConsulta;
+                agenda.TipoConsulta = a.TipoConsulta;
+
+                result.Agendamentos.Add(agenda);
+            }
+
             return result;
+        }
+
+        public Agenda create(Agenda agenda)
+        {
+            agenda.Paciente = contexto.Paciente.Find(agenda.IdPaciente);
+            agenda.Medico = contexto.Medico.Find(agenda.IdMedico);
+
+            contexto.Agenda.Add(agenda);
+            contexto.SaveChanges();
+            return agenda;
+        }
+
+        public Agenda update(Agenda agenda)
+        {
+            agenda.Paciente = contexto.Paciente.Find(agenda.IdPaciente);
+            agenda.Medico = contexto.Medico.Find(agenda.IdMedico);
+
+            contexto.Entry<Agenda>(agenda).State = System.Data.Entity.EntityState.Modified;
+            contexto.SaveChanges();
+            return agenda;
+        }
+
+        public void delete(long id)
+        {
+            Agenda agenda = contexto.Agenda.Find(id);
+            contexto.Agenda.Remove(agenda);
+            contexto.SaveChanges();
         }
     }
 }

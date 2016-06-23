@@ -3,7 +3,7 @@ namespace projeto_MVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class renameespecialidadesmedicosalteracoes : DbMigration
+    public partial class lazyfalse : DbMigration
     {
         public override void Up()
         {

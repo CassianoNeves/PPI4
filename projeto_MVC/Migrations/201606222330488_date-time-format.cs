@@ -3,7 +3,7 @@ namespace projeto_MVC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class renamerequireddayokwork : DbMigration
+    public partial class datetimeformat : DbMigration
     {
         public override void Up()
         {

@@ -7,13 +7,13 @@ namespace projeto_MVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class renamerequireddayokwork : IMigrationMetadata
+    public sealed partial class lazyfalse : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(renamerequireddayokwork));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(lazyfalse));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606151311237_rename-required-dayokwork"; }
+            get { return "201606220138298_lazy-false"; }
         }
         
         string IMigrationMetadata.Source

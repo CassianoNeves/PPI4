@@ -87,8 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-chosen.css" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite.png" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\Images\bg-login.jpg" />
@@ -98,8 +103,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ScriptsPages\Agenda.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Scripts\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
@@ -112,8 +124,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\fullcalendar.pt-br.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Agenda\Index.cshtml" />
@@ -135,6 +151,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Dominio\Agenda.cs" />
     <Compile Include="Dominio\Contexto.cs" />
     <Compile Include="Dominio\DayOfWork.cs" />
     <Compile Include="Dominio\Especialidade.cs" />
@@ -145,37 +162,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Autorizador.cs" />
-    <Compile Include="Migrations\201606150208016_Initial.cs" />
-    <Compile Include="Migrations\201606150208016_Initial.Designer.cs">
-      <DependentUpon>201606150208016_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201606220036501_initial.cs" />
+    <Compile Include="Migrations\201606220036501_initial.Designer.cs">
+      <DependentUpon>201606220036501_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606150210477_remove-SenhaVerificador.cs" />
-    <Compile Include="Migrations\201606150210477_remove-SenhaVerificador.Designer.cs">
-      <DependentUpon>201606150210477_remove-SenhaVerificador.cs</DependentUpon>
+    <Compile Include="Migrations\201606220138298_lazy-false.cs" />
+    <Compile Include="Migrations\201606220138298_lazy-false.Designer.cs">
+      <DependentUpon>201606220138298_lazy-false.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606150229533_especialidades-medicos.cs" />
-    <Compile Include="Migrations\201606150229533_especialidades-medicos.Designer.cs">
-      <DependentUpon>201606150229533_especialidades-medicos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606150231167_rename-especialidades-medicos.cs" />
-    <Compile Include="Migrations\201606150231167_rename-especialidades-medicos.Designer.cs">
-      <DependentUpon>201606150231167_rename-especialidades-medicos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.cs" />
-    <Compile Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.Designer.cs">
-      <DependentUpon>201606150300333_rename-especialidades-medicos-alteracoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606151311237_rename-required-dayokwork.cs" />
-    <Compile Include="Migrations\201606151311237_rename-required-dayokwork.Designer.cs">
-      <DependentUpon>201606151311237_rename-required-dayokwork.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606160029034_remove-required-especialidade.cs" />
-    <Compile Include="Migrations\201606160029034_remove-required-especialidade.Designer.cs">
-      <DependentUpon>201606160029034_remove-required-especialidade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606192356073_add-column-DuracaoConsulta-Medico.cs" />
-    <Compile Include="Migrations\201606192356073_add-column-DuracaoConsulta-Medico.Designer.cs">
-      <DependentUpon>201606192356073_add-column-DuracaoConsulta-Medico.cs</DependentUpon>
+    <Compile Include="Migrations\201606222330488_date-time-format.cs" />
+    <Compile Include="Migrations\201606222330488_date-time-format.Designer.cs">
+      <DependentUpon>201606222330488_date-time-format.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -216,29 +213,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606150208016_Initial.resx">
-      <DependentUpon>201606150208016_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606220036501_initial.resx">
+      <DependentUpon>201606220036501_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606150210477_remove-SenhaVerificador.resx">
-      <DependentUpon>201606150210477_remove-SenhaVerificador.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606220138298_lazy-false.resx">
+      <DependentUpon>201606220138298_lazy-false.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606150229533_especialidades-medicos.resx">
-      <DependentUpon>201606150229533_especialidades-medicos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606150231167_rename-especialidades-medicos.resx">
-      <DependentUpon>201606150231167_rename-especialidades-medicos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606150300333_rename-especialidades-medicos-alteracoes.resx">
-      <DependentUpon>201606150300333_rename-especialidades-medicos-alteracoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606151311237_rename-required-dayokwork.resx">
-      <DependentUpon>201606151311237_rename-required-dayokwork.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606160029034_remove-required-especialidade.resx">
-      <DependentUpon>201606160029034_remove-required-especialidade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606192356073_add-column-DuracaoConsulta-Medico.resx">
-      <DependentUpon>201606192356073_add-column-DuracaoConsulta-Medico.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606222330488_date-time-format.resx">
+      <DependentUpon>201606222330488_date-time-format.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

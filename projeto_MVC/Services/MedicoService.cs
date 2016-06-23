@@ -13,19 +13,11 @@ namespace projeto_MVC.Services
 
         public void create(Medico medico)
         {
-            Medico medicoInsert = new Medico();
+            medico.Especialidades = contexto.Especialidade.Where(x => medico.IdEspecialidades.Contains(x.Id)).ToList();
 
-            medicoInsert.Nome = medico.Nome;
-            medicoInsert.Crm = medico.Crm;
-            medicoInsert.Email = medico.Email;
-            medicoInsert.HrInicio = medico.HrInicio;
-            medicoInsert.HrFim = medico.HrFim;
+            contexto.Entry<Medico>(medico).State = System.Data.Entity.EntityState.Added;
 
-            medicoInsert.Especialidades = contexto.Especialidade.Where(x => medico.IdEspecialidades.Contains(x.Id)).ToList();
-
-            contexto.Entry<Medico>(medicoInsert).State = System.Data.Entity.EntityState.Added;
-
-            foreach (Especialidade e in medicoInsert.Especialidades)
+            foreach (Especialidade e in medico.Especialidades)
             {
                 contexto.Entry<Especialidade>(e).State = System.Data.Entity.EntityState.Unchanged;
             }
@@ -36,7 +28,7 @@ namespace projeto_MVC.Services
             {
                 DayOfWork dayOfWork = new DayOfWork();
 
-                dayOfWork.Medico = medicoInsert;
+                dayOfWork.Medico = medico;
                 dayOfWork.DayOfWeek = day;
                 days.Add(dayOfWork);
             }

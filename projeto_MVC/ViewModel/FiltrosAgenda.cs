@@ -12,5 +12,6 @@ namespace projeto_MVC.ViewModel
         public List<Paciente> Pacientes { get; set; }
         public int IdMedico { get; set; }
         public int IdPaciente { get; set; }
+        public String[] tiposDeConsulta { get; set; }
     }
 }

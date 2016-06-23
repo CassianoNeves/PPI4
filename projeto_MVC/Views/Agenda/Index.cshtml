@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label class="control-label" for="IdMedico">Médico</label>
                 <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdMedico" id="IdMedico">
-                    <option><option>
+                    <option></option>
                     @foreach (projeto_MVC.Dominio.Medico medico in ViewBag.filtros.Medicos)
                     {
                         <option value="@medico.Id">@medico.Nome</option>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="control-label" for="IdPaciente">Paciente</label>
                 <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdPaciente" id="IdPaciente">
-                    <option><option>
+                    <option></option>
                     @foreach (projeto_MVC.Dominio.Paciente paciente in ViewBag.filtros.Pacientes)
                     {
                         <option value="@paciente.Id">@paciente.Nome</option>
@@ -45,4 +45,63 @@
 <div class="text-center">
     <div id="calendar" style="width:950px; height:600px;"></div>
 </div>
-        
+
+<div id="consultaModal" class="modal fade" aria-labelledby="consultaModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confira os dados da Consulta</h4>
+            </div>
+
+            <div class="modal-body form-horizontal">
+                <input type="hidden" name="IdConsulta" id="IdConsulta" />
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Médico: </label>
+                    <div class="col-md-9">
+                        <span id="nomeMedico"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-md-3">Data: </label>
+                    <div class="col-md-9">
+                        <span id="dataConsulta"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="IdPacienteConsulta">Paciente:</label>
+                    <div class="col-md-9">
+                        <select data-placeholder="Selecione..." class="chosen-select form-control" name="IdPacienteConsulta" id="IdPacienteConsulta">
+                            <option></option>
+                            @foreach (projeto_MVC.Dominio.Paciente paciente in ViewBag.filtros.Pacientes)
+                            {
+                                <option value="@paciente.Id">@paciente.Nome</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3" for="TipoConsulta">Tipo da Consulta:</label>
+                    <div class="col-md-9">
+                        <select data-placeholder="Selecione..." class="chosen-select form-control" name="TipoConsulta" id="TipoConsulta">
+                            <option></option>
+                            @foreach (String tipoConsulta in ViewBag.filtros.tiposDeConsulta)
+                            {
+                                <option value="@tipoConsulta">@tipoConsulta</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="bt_excluir" type="button" class="btn btn-danger">Excluir</button>
+                <button id="bt_cancelar" type="button" class="btn btn-default">Cancelar</button>
+                <button id="bt_salvar" type="button" class="btn btn-primary">Marcar Consulta</button>
+            </div>
+        </div>
+    </div>
+</div>
