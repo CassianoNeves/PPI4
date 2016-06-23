@@ -11,7 +11,7 @@ namespace projeto_MVC.Dominio
         public Contexto()
             : base("conexao")
         {
-
+            //this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Especialidade> Especialidade { get; set; }
@@ -19,5 +19,6 @@ namespace projeto_MVC.Dominio
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Paciente> Paciente { get; set; }
         public DbSet<DayOfWork> DayOfWork { get; set; }
+        public DbSet<Agenda> Agenda { get; set; }
     }
 }

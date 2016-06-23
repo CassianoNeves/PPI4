@@ -7,13 +7,13 @@ namespace projeto_MVC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class renameespecialidadesmedicosalteracoes : IMigrationMetadata
+    public sealed partial class datetimeformat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(renameespecialidadesmedicosalteracoes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(datetimeformat));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606150300333_rename-especialidades-medicos-alteracoes"; }
+            get { return "201606222330488_date-time-format"; }
         }
         
         string IMigrationMetadata.Source
