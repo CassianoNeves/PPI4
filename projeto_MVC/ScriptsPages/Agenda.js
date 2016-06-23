@@ -30,7 +30,7 @@
 
     $.post('/Agenda/Delete/' + id)
       .done(function(data) {
-
+        toastr.success('Consulta excluída com sucesso.');
       });
 
     fullCalendar.fullCalendar( 'removeEvents', id );
@@ -57,6 +57,7 @@
     $.post('/Agenda/Create', consulta)
       .done(function(data) {
         addConsultaNoCalendario(data);
+        toastr.success('Consulta salva com sucesso.');
       });
   }
 
@@ -64,6 +65,7 @@
     $.post('/Agenda/Update', consulta)
       .done(function(data) {
         updateConsultaNoCalendario(data);
+        toastr.success('Consulta salva com sucesso.');
       });
   }
 
@@ -215,11 +217,10 @@
           $('#IdConsulta').val(null);
           $('#dataConsulta').text(date.format('LLLL'));
           $('#nomeMedico').text(nomeMedico);
-
-          if (IdPaciente) {
-            $('#IdPacienteConsulta').val(IdPaciente);
-            $('#IdPacienteConsulta').trigger("chosen:updated");
-          }
+          $('#IdPacienteConsulta').val(IdPaciente);
+          $('#IdPacienteConsulta').trigger("chosen:updated");
+          $('#TipoConsulta').val(null);
+          $('#TipoConsulta').trigger("chosen:updated");
 
           $('#bt_excluir').addClass('hide');
           $('#consultaModal').modal('show');
