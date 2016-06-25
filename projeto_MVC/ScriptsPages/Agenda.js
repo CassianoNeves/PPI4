@@ -2,6 +2,7 @@
   'use strict';
 
   var fullCalendar = $('#calendar');
+  var eventForRollBack = {};
 
   $('#bt_buscar').on('click', function() {
     $.post('/Agenda/Buscar', getFiltros())
@@ -38,10 +39,6 @@
   });
 
   function eventDrag(event, jsEvent, ui, view) {
-    console.log(event)
-    console.log(jsEvent)
-    console.log(ui)
-    console.log(view)
     var consulta = {
       Id: event.id,
       DataDaConsulta: event.start.format(),
@@ -50,7 +47,10 @@
       IdMedico: $('#IdMedico').val(),
     }
 
-    update(consulta);
+    update(consulta)
+      .fail(function(err) {
+        eventRollBackStart();
+      })
   }
 
   function create(consulta) {
@@ -67,11 +67,31 @@
   }
 
   function update(consulta) {
-    $.post('/Agenda/Update', consulta)
+    return $.post('/Agenda/Update', consulta)
       .done(function(data) {
         updateConsultaNoCalendario(data);
         toastr.success('Consulta salva com sucesso.');
-      });
+      })
+      .fail(function(err) {
+        if (err.responseJSON === 'NO_CONSULTA_IN_LAST_DAYS') {
+          toastr.error('O Paciente não teve uma consulta nos ultimos 30 dias.');
+        }
+      })
+  }
+
+  function eventRollBackStart() {
+    var event = {
+        id: eventForRollBack.id,
+        title: eventForRollBack.title,
+        start:eventForRollBack.start,
+        constraint: 'businessHours',
+        color: resolveColor(eventForRollBack.tipoConsuta),
+        idPaciente: eventForRollBack.idPaciente,
+        tipoConsuta: eventForRollBack.tipoConsuta
+    }
+
+    fullCalendar.fullCalendar( 'removeEvents', event.id );
+    fullCalendar.fullCalendar( 'addEventSource', [event] );
   }
 
   function generateConsulta() {
@@ -148,15 +168,15 @@
            right: 'month,agendaDay'
        },
        lang: 'pt-br',
+       timezone: 'America/Sao_Paulo',
        defaultDate: new Date(),
-       slotLabelInterval: '00:30',
-       slotLabelFormat: ['HH:mm'],
        aspectRatio: 1.8,
        minTime: data.HrInicio,
        maxTime: data.HrFim,
-       defaultTimedEventDuration: '00:30:00',
-      //  slotDuration: data.DuracaoConsulta,
-       timezone: 'America/Sao_Paulo',
+       slotLabelFormat: ['HH:mm'],
+       defaultTimedEventDuration: data.DuracaoConsulta,
+       slotDuration: data.DuracaoConsulta,
+       slotLabelInterval: data.DuracaoConsulta,
        businessHours: {
            start: data.HrInicio,
            end: data.HrFim,
@@ -165,12 +185,20 @@
        dayClick: dayClick,
        eventClick: eventClick,
        eventDrop: eventDrag,
+       eventDragStart: eventRollBack,
+       eventLimit: true,
        editable: true,
        selectable: true,
        events: []
     });
 
     generateConsultas(data.Agendamentos);
+  }
+
+  function eventRollBack(event) {
+    for (var p in event) {
+      eventForRollBack[p] = event[p];
+    }
   }
 
   function generateConsultas(agendamentos) {

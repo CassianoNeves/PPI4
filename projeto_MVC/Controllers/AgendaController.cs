@@ -46,7 +46,16 @@ namespace projeto_MVC.Controllers
         [HttpPost]
         public JsonResult Update(Agenda agenda)
         {
-            return Json(agendaService.update(agenda));
+            Agenda agendaUpdated = agendaService.update(agenda);
+
+
+            if (agendaUpdated.Id == -1)
+            {
+                Response.StatusCode = 400;
+                return Json("NO_CONSULTA_IN_LAST_DAYS");
+            }
+
+            return Json(agendaUpdated);
         }
 
         [HttpPost]
