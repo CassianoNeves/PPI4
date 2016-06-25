@@ -44,7 +44,14 @@ namespace projeto_MVC.Services
             medico.DayOfWork.ForEach(d => result.diasDaSemana.Add(d.DayOfWeek));
 
             List<Agenda> agendamentos = new List<Agenda>();
-            agendamentos = contexto.Agenda.Include("Paciente").Where(a => a.Medico.Id == filtros.IdMedico).ToList();
+
+            var where = contexto.Agenda.Include("Paciente").Include("Medico").Where(a => a.Medico.Id == filtros.IdMedico);
+
+            if (filtros.IdPaciente > 0) {
+                where = where.Where(a => a.Paciente.Id == filtros.IdPaciente);
+            }
+
+            agendamentos = where.ToList();
 
             result.Agendamentos = new List<Agenda>();
 
@@ -106,7 +113,14 @@ namespace projeto_MVC.Services
             {
                 DateTime dataLimit = DateTime.Now.AddDays(-30);
 
-                List<Agenda> consutas = contexto.Agenda.Where(a => (a.Paciente.Id == agenda.IdPaciente) && (a.DataDaConsulta >= dataLimit) && (a.DataDaConsulta <= agenda.DataDaConsulta) && a.TipoConsulta.Equals("Consulta") && (a.Id != agenda.Id)).ToList();
+                List<Agenda> consutas = contexto.Agenda.Where(a => 
+                    (a.Paciente.Id == agenda.IdPaciente) && 
+                    (a.DataDaConsulta >= dataLimit) && 
+                    (a.DataDaConsulta <= agenda.DataDaConsulta) 
+                    && a.TipoConsulta.Equals("Consulta") && 
+                    (a.Id != agenda.Id) &&
+                    (a.Medico.Id == agenda.IdMedico)
+                    ).ToList();
 
                 if (consutas == null || consutas.Count == 0)
                 {

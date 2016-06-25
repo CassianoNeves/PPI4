@@ -3,8 +3,17 @@
 
   var fullCalendar = $('#calendar');
   var eventForRollBack = {};
+  var configDoMedico = {};
 
   $('#bt_buscar').on('click', function() {
+    fullCalendar.fullCalendar('removeEvents');
+    if (!$('#IdMedico').val()) {
+      toastr.error('Selecione o médico para ver a agenda.');
+      fullCalendar.addClass('hide')
+      return;
+    }
+
+  fullCalendar.removeClass('hide')
     $.post('/Agenda/Buscar', getFiltros())
       .done(function(data) {
         initFullCalendar(data);
@@ -161,7 +170,9 @@
   }
 
   function initFullCalendar(data) {
-    $('#calendar').fullCalendar({
+    configDoMedico.diasDaSemana = data.diasDaSemana;
+    fullCalendar.fullCalendar( 'destroy' );
+    fullCalendar.fullCalendar({
        header: {
            left: 'prev,next today',
            center: 'title',
@@ -186,6 +197,7 @@
        eventClick: eventClick,
        eventDrop: eventDrag,
        eventDragStart: eventRollBack,
+       dayRender: teste,
        eventLimit: true,
        editable: true,
        selectable: true,
@@ -193,6 +205,10 @@
     });
 
     generateConsultas(data.Agendamentos);
+  }
+
+  function teste(date, cell) {
+    console.log(date.format('e'))
   }
 
   function eventRollBack(event) {
@@ -242,6 +258,12 @@
       fullCalendar.fullCalendar('gotoDate', date);
 
       if (fullCalendar.fullCalendar('getView').name === 'month') {
+        var indexDayClick = parseInt(date.format('e'));
+
+        if (configDoMedico.diasDaSemana.indexOf(indexDayClick) <= -1) {
+          return;
+        }
+        
         fullCalendar.fullCalendar('changeView', 'agendaDay');
       } else {
           var nomeMedico = $('#IdMedico :selected').text();
@@ -263,7 +285,7 @@
   function getFiltros() {
     return {
       IdMedico: $('#IdMedico').val(),
-      IdPacinte: $('#IdPaciente').val(),
+      IdPaciente: $('#IdPaciente').val(),
     }
   }
 
