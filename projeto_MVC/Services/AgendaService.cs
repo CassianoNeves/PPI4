@@ -65,15 +65,9 @@ namespace projeto_MVC.Services
 
         public Agenda create(Agenda agenda)
         {
-            if (agenda.TipoConsulta == "Reconsulta") {
-                DateTime dataLimit = DateTime.Now.AddDays(-30);
-
-                List<Agenda> consutas = contexto.Agenda.Where(a => (a.Paciente.Id == agenda.IdPaciente) && (a.DataDaConsulta >= dataLimit)).ToList();
-
-                if (consutas == null || consutas.Count == 0) {
-                    agenda.Id = -1;
-                    return agenda;
-                }
+            if (!isValidOperation(agenda))
+            {
+                return agenda;
             }
 
             agenda.Paciente = contexto.Paciente.Find(agenda.IdPaciente);
@@ -86,6 +80,11 @@ namespace projeto_MVC.Services
 
         public Agenda update(Agenda agenda)
         {
+            if (!isValidOperation(agenda)) 
+            {
+                return agenda;
+            }
+
             agenda.Paciente = contexto.Paciente.Find(agenda.IdPaciente);
             agenda.Medico = contexto.Medico.Find(agenda.IdMedico);
 
@@ -99,6 +98,24 @@ namespace projeto_MVC.Services
             Agenda agenda = contexto.Agenda.Find(id);
             contexto.Agenda.Remove(agenda);
             contexto.SaveChanges();
+        }
+
+        private Boolean isValidOperation(Agenda agenda)
+        {
+            if (agenda.TipoConsulta == "Reconsulta")
+            {
+                DateTime dataLimit = DateTime.Now.AddDays(-30);
+
+                List<Agenda> consutas = contexto.Agenda.Where(a => (a.Paciente.Id == agenda.IdPaciente) && (a.DataDaConsulta >= dataLimit) && (a.DataDaConsulta <= agenda.DataDaConsulta) && a.TipoConsulta.Equals("Consulta") && (a.Id != agenda.Id)).ToList();
+
+                if (consutas == null || consutas.Count == 0)
+                {
+                    agenda.Id = -1;
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
