@@ -7,9 +7,8 @@
 
 <h2>Lista <b>de especialidades</b></h2>
 
-<p>
-    @Html.ActionLink("Criar Especialidade", "Create")
-</p>
+<a class="btn btn-primary pull-right" href="/Especialidade/Create/"><i class="fa fa-file-o" aria-hidden="true"></i> Criar Especialidade</a>
+
 <table class="table">
     <tr>
         <th>
@@ -23,9 +22,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        <td class="table-options">
+            <a class="btn btn-warning" href="/Especialidade/Edit/@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+            <a class="btn btn-danger" href="/Especialidade/Delete/@item.Id"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</a>
         </td>
     </tr>
 }

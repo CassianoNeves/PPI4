@@ -31,7 +31,7 @@ body {
     padding-bottom: 15px;
     text-transform: uppercase;
     border-bottom: solid 1px #eee;
-    font-size: 26px;
+    font-size: 24px;
     color: #333;
 }
 
@@ -93,8 +93,22 @@ body .chosen-container-single .chosen-single {
     border-radius: 0;
 }
 
-/* HEADER */
+/* TABLE */
+table.table tbody>tr>th {
+    text-transform: uppercase;
+    border: 0;
+}
 
+table.table tbody>tr>td {
+    line-height: 35px;
+}
+
+.table tbody>tr>td.table-options {
+    width: 176px;
+    padding-right: 0;
+}
+
+/* HEADER */
 .logo {
     margin: 2px 15px 0 0;
     float: left;
