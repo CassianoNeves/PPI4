@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Agenda</h2>
+<h2>Minha <b>Agenda</b></h2>
 
     @Html.AntiForgeryToken()
 
+<div class="box-filter">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -38,12 +39,13 @@
 
         <div class="col-md-4">
             <div class="form-group">
-                <button id="bt_buscar" class="btn btn-default">Buscar</button>
+                <button id="bt_buscar" class="btn pull-right btn-default">Buscar</button>
             </div>
         </div>
     </div>
+</div>
 <div class="text-center">
-    <div id="calendar" style="width:950px; height:600px;"></div>
+    <div id="calendar" class="calendar" style="width:950px; height:600px;"></div>
 </div>
 
 <div id="consultaModal" class="modal fade" aria-labelledby="consultaModalLabel">

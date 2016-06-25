@@ -36,12 +36,9 @@
                     </li>
                     <li>
                         @Html.ActionLink("Paciente", "List", "Paciente", new { area = "" }, new { @class = "navbar-brand" })
-                    </li>
-                    <li>
-                        @Html.ActionLink("Sair", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
-                    </li>
-                    
+                    </li>                    
                 </ul>
+                @Html.ActionLink("Sair", "Logout", "Login", new { area = "" }, new { @class = "pull-right navbar-brand" })
             </div>
         </div>
     </div>

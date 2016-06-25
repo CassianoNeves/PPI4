@@ -26,6 +26,75 @@ body {
     padding-bottom: 0;
 }
 
+.body-content >h2 {
+    margin: 40px 0 20px;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: solid 1px #eee;
+    font-size: 26px;
+    color: #333;
+}
+
+.body-content h2 b {
+    color: #039BE5;
+    font-weight: 300;
+}
+
+body .btn-default {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    background-color: #039BE5;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+body .btn-default:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: 1px;
+    background: #fff;
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+body .btn-default:hover {
+    background-color: #039BE5;
+    color: #fff;
+}
+
+body .btn-default:hover:before,
+body .btn-default:focus:before,
+body .btn-default:active:before {
+  left: 0;
+  right: 0;
+}
+
+/* CHOSEN */
+body .chosen-container-single .chosen-single {
+    border-radius: 0;
+}
+
+/* HEADER */
+
 .logo {
     margin: 2px 15px 0 0;
     float: left;
@@ -84,64 +153,12 @@ body {
 	transform: translateX(0px);
 }
 
-body .btn-default {
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    color: #fff;
-    background-color: #039BE5;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-
-body .btn-default:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    right: 50%;
-    bottom: 1px;
-    background: #fff;
-    height: 2px;
-    -webkit-transition-property: left, right;
-    transition-property: left, right;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-}
-
-body .btn-default:hover {
-    background-color: #039BE5;
-    color: #fff;
-}
-
-body .btn-default:hover:before,
-body .btn-default:focus:before,
-body .btn-default:active:before {
-  left: 0;
-  right: 0;
-}
-
- body .form-control {
+body .form-control {
     border-radius: 0;
     box-shadow: none;
 }
 
- .pg-login footer {
-     left: 0;
-     position: absolute;
-     bottom: -5px;
- }
+/*  FOOTER */
 
  footer {
      width: 100%;
@@ -153,17 +170,17 @@ footer .container {
     position: relative;
 }
 
- footer p {
+footer p {
     margin: 3px 0;
     color: #fff;
     font-size: 12px;
- }
+}
 
-  footer .copyright {
+footer .copyright {
     position: absolute;
     right: 0;
     top: 0;
-  }
+}
 
 /*LOGIN*/
 .pg-login {
@@ -243,3 +260,20 @@ footer .container {
     padding: 10px 0 0;
     margin: 0;
 }
+
+.pg-login footer {
+     left: 0;
+     position: absolute;
+     bottom: -5px;
+ }
+
+/* PG-AGENDA */
+.box-filter {
+    margin: 35px 0;
+}
+
+.calendar {
+    width: 100% !important;
+    height: 100% !important;
+}
+    
