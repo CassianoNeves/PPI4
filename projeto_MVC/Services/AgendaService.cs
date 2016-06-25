@@ -65,6 +65,17 @@ namespace projeto_MVC.Services
 
         public Agenda create(Agenda agenda)
         {
+            if (agenda.TipoConsulta == "Reconsulta") {
+                DateTime dataLimit = DateTime.Now.AddDays(-30);
+
+                List<Agenda> consutas = contexto.Agenda.Where(a => (a.Paciente.Id == agenda.IdPaciente) && (a.DataDaConsulta >= dataLimit)).ToList();
+
+                if (consutas == null || consutas.Count == 0) {
+                    agenda.Id = -1;
+                    return agenda;
+                }
+            }
+
             agenda.Paciente = contexto.Paciente.Find(agenda.IdPaciente);
             agenda.Medico = contexto.Medico.Find(agenda.IdMedico);
 

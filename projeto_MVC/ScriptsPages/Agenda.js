@@ -58,7 +58,12 @@
       .done(function(data) {
         addConsultaNoCalendario(data);
         toastr.success('Consulta salva com sucesso.');
-      });
+      })
+      .fail(function(err) {
+        if (err.responseJSON === 'NO_CONSULTA_IN_LAST_DAYS') {
+          toastr.error('O Paciente não teve uma consulta nos ultimos 30 dias.');
+        }
+      })
   }
 
   function update(consulta) {
