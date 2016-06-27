@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Crm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Crm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Crm, new { htmlAttributes = new { @class = "crm form-control" } })
                 @Html.ValidationMessageFor(model => model.Crm, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -62,21 +62,21 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="HrInicio">Início do atendimento</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HrInicio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.HrInicio, new { htmlAttributes = new { @class = "atendimento form-control" } })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="HrFim">Fim do atendimento</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.HrFim, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.HrFim, new { htmlAttributes = new { @class = "atendimento form-control" } })
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="DuracaoConsulta">Duração da Consulta</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DuracaoConsulta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DuracaoConsulta, new { htmlAttributes = new { @class = "duracao form-control" } })
             </div>
         </div>
 

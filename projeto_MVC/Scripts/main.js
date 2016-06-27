@@ -20,5 +20,7 @@ $(document).ready(function () {
 
     $('.cpf').mask('000.000.000-00');
     $('.crm').mask('0000000');
+    $('.atendimento').mask('00:00');
+    $('.duracao').mask('00:00:00');
 
 });

@@ -44,10 +44,6 @@ body {
     font-weight: 300;
 }
 
- body {
-
- }
-
 body .btn {
     border: 0;
     border-radius: 0;
@@ -74,9 +70,9 @@ body .btn-default:focus {
     background-color: #039BE5;
 }
 
- body .btn:focus {
-    color: #fff;
- }
+body .btn:focus {
+   color: #fff;
+}
 
 body .btn:before {
     content: "";
@@ -106,9 +102,17 @@ body .btn:active:before {
   right: 0;
 }
 
+.control-label {
+    text-transform: uppercase;
+}
 /* CHOSEN */
-body .chosen-container-single .chosen-single {
+body .chosen-container-single .chosen-single,
+body .chosen-container-multi .chosen-choices  {
     border-radius: 0;
+}
+
+body .chosen-drop {
+    width: 100%;
 }
 
 /* TABLE */
