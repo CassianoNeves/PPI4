@@ -12,8 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Especialidade</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,5 +34,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a class="btn btn-default" href="/Especialidade/List"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
 </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Clinica Vida</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/fullcalendar.css" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <h1 class="logo">
-                    <img src="../Content/Images/logo.png" alt="Alternate Text" />
+                    <img src="~/Content/Images/logo.png" alt="Alternate Text" />
                 </h1>
                 @Html.ActionLink("Agenda", "Index", "Agenda", new { area = "" }, new { @class = "navbar-brand" })
             </div>
@@ -66,6 +66,7 @@
     <script src="~/Scripts/toastr.min.js"></script>
     <script src="~/Scripts/jquery.mask.min.js"></script>
 
+    <script src="~/Scripts/main.js"></script>
     <script src="~/ScriptsPages/Agenda.js"></script>
     
 </body>
