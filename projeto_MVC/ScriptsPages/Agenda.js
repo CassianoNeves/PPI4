@@ -197,7 +197,6 @@
        eventClick: eventClick,
        eventDrop: eventDrag,
        eventDragStart: eventRollBack,
-       dayRender: teste,
        eventLimit: true,
        editable: true,
        selectable: true,
@@ -205,10 +204,6 @@
     });
 
     generateConsultas(data.Agendamentos);
-  }
-
-  function teste(date, cell) {
-    console.log(date.format('e'))
   }
 
   function eventRollBack(event) {
@@ -263,7 +258,7 @@
         if (configDoMedico.diasDaSemana.indexOf(indexDayClick) <= -1) {
           return;
         }
-        
+
         fullCalendar.fullCalendar('changeView', 'agendaDay');
       } else {
           var nomeMedico = $('#IdMedico :selected').text();
