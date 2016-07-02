@@ -40,6 +40,12 @@ namespace projeto_MVC.Controllers
                 return Json("NO_CONSULTA_IN_LAST_DAYS");
             }
 
+            if (agendaCreated.Id == -2)
+            {
+                Response.StatusCode = 400;
+                return Json("EXISTS_CONSULTA_IN_DATE");
+            }
+
             return Json(agendaCreated);
         }
 
@@ -53,6 +59,12 @@ namespace projeto_MVC.Controllers
             {
                 Response.StatusCode = 400;
                 return Json("NO_CONSULTA_IN_LAST_DAYS");
+            }
+
+            if (agendaUpdated.Id == -2)
+            {
+                Response.StatusCode = 400;
+                return Json("EXISTS_CONSULTA_IN_DATE");
             }
 
             return Json(agendaUpdated);

@@ -109,6 +109,16 @@ namespace projeto_MVC.Services
 
         private Boolean isValidOperation(Agenda agenda)
         {
+
+            List<Agenda> consultas = contexto.Agenda.Where(a => 
+                a.DataDaConsulta == agenda.DataDaConsulta &&
+                a.Medico.Id == agenda.IdMedico).ToList();
+
+            if (consultas != null && consultas.Count > 0) {
+                agenda.Id = -2;
+                return false;
+            }
+
             if (agenda.TipoConsulta == "Reconsulta")
             {
                 DateTime dataLimit = DateTime.Now.AddDays(-30);

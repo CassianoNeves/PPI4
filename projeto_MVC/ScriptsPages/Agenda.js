@@ -78,12 +78,18 @@
   function update(consulta) {
     return $.post('/Agenda/Update', consulta)
       .done(function(data) {
+        debugger
         updateConsultaNoCalendario(data);
         toastr.success('Consulta salva com sucesso.');
       })
       .fail(function(err) {
+        debugger
         if (err.responseJSON === 'NO_CONSULTA_IN_LAST_DAYS') {
           toastr.error('O Paciente não teve uma consulta nos ultimos 30 dias.');
+        }
+
+        if (err.responseJSON === 'EXISTS_CONSULTA_IN_DATE') {
+          toastr.error('Já existe uma consulta nesta data.');
         }
       })
   }
@@ -199,6 +205,7 @@
        eventDragStart: eventRollBack,
        eventLimit: true,
        editable: true,
+       eventDurationEditable: false,
        selectable: true,
        events: []
     });
